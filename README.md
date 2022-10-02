@@ -80,7 +80,7 @@ Only the scenario I'm using this action is listed at the moment, but any [contri
 
 (Tutorial [source](https://github.com/tinysearch/tinysearch/blob/master/howto/hugo.md) in the tinysearch repository.)
 
-With Hugo, the index can be built by adding a custom JSON layout:
+With Hugo, the index can be built by adding a custom JSON layout. Create `layouts/_default/list.json.json`:
 
 ```json
 [

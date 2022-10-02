@@ -20,4 +20,4 @@ jobs:
       - name: Test
         run: |
           echo ${{ steps.tinysearch.outputs.files }}
-          ls -alh ./static/wasm
+          ls -alh ./public/wasm
