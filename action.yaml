@@ -1,6 +1,6 @@
-name: Tinysearch
+name: Tinysearch Action
 author: leon h (github.com/leonhfr)
-description: Build tinysearch
+description: Build a tinysearch engine
 
 inputs:
   index:
