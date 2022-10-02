@@ -2,14 +2,14 @@
 
 tinysearch-action is a Github action to build a [tinysearch](https://github.com/tinysearch/tinysearch) engine from an index file. This action is meant to be combined with static site generators (Hugo, mdBook, ...).
 
-This example takes a json index located in `public/index.json` and outputs all `wasm` and `js` files to the `static/wasm` directory.
+This example takes a json index located in `public/index.json` and outputs all `wasm` and `js` files to the `public/wasm` directory.
 
 ```yaml
 - name: Build tinysearch
-  uses: leonhfr/tinysearch-action@master
+  uses: leonhfr/tinysearch-action@v1
   with:
     index: public/index.json
-    output_dir: static/wasm
+    output_dir: public/wasm
     output_types: |
       wasm
       js
@@ -20,15 +20,18 @@ This example takes a json index located in `public/index.json` and outputs all `
 ### Inputs
 
 ```yaml
-- uses: leonhfr/tinysearch-action@master
+- uses: leonhfr/tinysearch-action@v1
   with:
     # Path to the json index.
+    # Optional.
     index: public/index.json # default
     # Path to the output directory.
     # If the directory does not exist, it will be created.
-    output_dir: static/wasm # default
+    # Required.
+    output_dir: public/wasm
     # Extensions that will be copied from the tinysearch output to the output directory.
     # This should be a multiline input using the pipe operator |, with one extension per line.
+    # Optional.
     output_types: | # default
       wasm
       js
@@ -61,7 +64,9 @@ For example, the last step will echo file names:
 - uses: actions/checkout@v3
 - name: Build tinysearch
   id: tinysearch
-  uses: leonhfr/tinysearch-action@master
+  uses: leonhfr/tinysearch-action@v1
+  with:
+    output_dir: public/wasm
 - name: List emitted files
   run: |
     echo ${{ steps.tinysearch.outputs.files }}
@@ -109,9 +114,9 @@ Finally, use the action after building the hugo website and before publishing:
   env:
     HUGO_ENV: production
 - name: Build tinysearch
-  uses: leonhfr/tinysearch-action@master
+  uses: leonhfr/tinysearch-action@v1
   with:
-    output_dir: static/wasm
+    output_dir: public/wasm
     output_types: |
       wasm
 - name: Deploy
