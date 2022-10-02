@@ -1,0 +1,31 @@
+name: Tinysearch
+author: leon h (github.com/leonhfr)
+description: Build tinysearch
+
+inputs:
+  index:
+    description: path to json index
+    required: false
+    default: public/index.json
+  output_dir:
+    description: path to output directory
+    required: false
+    default: static/wasm
+  output_types:
+    description: file types to output
+    required: false
+    default: |
+      wasm
+      js
+
+outputs:
+  files:
+    description: list of created files
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.index }}
+    - ${{ inputs.output_dir }}
+    - ${{ inputs.output_types }}

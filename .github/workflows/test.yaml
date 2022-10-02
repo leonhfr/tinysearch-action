@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build tinysearch
+        id: tinysearch
+        uses: ./
+        with:
+          index: fixtures/index.json
+          output_dir: static/wasm
+          output_types: |
+            wasm
+            js
+
+      - name: Test
+        run: |
+          echo ${{ steps.tinysearch.outputs.files }}
+          ls -alh ./static/wasm
