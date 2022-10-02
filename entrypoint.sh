@@ -1,7 +1,5 @@
 #!/bin/sh -l
 
-ls -a #rm
-
 echo "::notice ::Create output directory if not existing"
 mkdir -p "$INPUT_OUTPUT_DIR"
 

@@ -1,6 +1,6 @@
 # tinysearch action
 
-tinysearch-action is a Github action to build [tinysearch](https://github.com/tinysearch/tinysearch) engine from an index file. This action is meant to be combined with static site generators (Hugo, mdBook, ...).
+tinysearch-action is a Github action to build a [tinysearch](https://github.com/tinysearch/tinysearch) engine from an index file. This action is meant to be combined with static site generators (Hugo, mdBook, ...).
 
 This example takes a json index located in `public/index.json` and outputs all `wasm` and `js` files to the `static/wasm` directory.
 
