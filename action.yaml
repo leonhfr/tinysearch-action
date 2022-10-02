@@ -29,3 +29,7 @@ runs:
     - ${{ inputs.index }}
     - ${{ inputs.output_dir }}
     - ${{ inputs.output_types }}
+
+branding:
+  icon: search
+  color:  gray-dark
